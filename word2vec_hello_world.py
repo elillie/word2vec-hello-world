@@ -45,6 +45,12 @@ def train_word2vec_model(sentences):
     )
     
     print(f"Model trained! Vocabulary size: {len(model.wv.key_to_index)}")
+    print("=== Full Vocabulary with Vectors ===")
+    for word in model.wv.key_to_index:
+        vector = model.wv[word]
+        print(f"{word}: {vector}")
+    print(f"\nTotal vocabulary size: {len(model.wv.key_to_index)}")
+    print(f"Vector dimensions: {model.wv.vector_size}")
     return model
 
 def demonstrate_word_similarity(model):
